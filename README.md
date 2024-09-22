@@ -11,6 +11,8 @@ This Chat App is a real-time messaging platform that enables seamless communicat
 ### Features
 
 - User Registration & Authentication: Secure sign-up and login functionalities.
+- ![User Login](client/src/app/assets/User login.jpg)
+
 
 - Real-Time Messaging: Instant messaging with real-time updates using WebSockets, enabling smooth and responsive communication between users.
 
