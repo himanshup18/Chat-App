@@ -1,4 +1,8 @@
 # Chat Application
+Name- Himanshu Patel  
+University- IIT Dhanbad  
+Department- Mechanical engineering
+
 ### Introduction
 This Chat App is a real-time messaging platform that enables seamless communication between users through both private and group chats. It offers a user-friendly interface along with robust functionality for text communication. Additionally, it features an AI-powered chatbot for enhanced user interaction.
 
