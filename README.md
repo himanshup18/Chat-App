@@ -1,4 +1,4 @@
-# Chat Application  
+# QuickCon
 [System Design Document](https://docs.google.com/document/d/1-PaUlcVDQhw5Boz_gb005BU5gIp59NAxN5UfA_xW5LA/edit?addon_store)
 
 Name- Himanshu Patel  
