@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image"; 
 import { useRouter } from "next/navigation";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/QC2.jpg";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Select, MenuItem, Avatar } from '@mui/material';
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -134,8 +134,9 @@ export default function Contacts({ contacts, changeChat,groups,setGroups }) {
         <Container>
           <div className="brand">
             <div className="flex">
-              <Image src={Logo} alt="logo" width={50} height={50} />
-              <h3>snappy</h3>
+              <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px", objectFit: "cover", objectPosition: "center",marginRight:"10px",
+              marginLeft:"10px" }} />
+              <h3 className="font-semibold text-xl"><span className="text-blue-600 ">Quick</span>Con</h3>
             </div>
             <button onClick={handleOpenCreateGroup}>+</button>
 

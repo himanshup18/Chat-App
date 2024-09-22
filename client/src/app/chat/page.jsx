@@ -9,6 +9,8 @@ import ChatContainer from "./components/ChatContainer";
 import Contacts from "./components/Contacts";
 import Welcome from "./components/Welcome";
 import Image from 'next/image';
+import Popup from "./components/PopupWindow/PopupWindow";
+const url = 'https://chatmessagingapp.vercel.app/MediBuddy';
 export default function Chat() {
   const router = useRouter();
   const socket = useRef();
@@ -105,6 +107,9 @@ export default function Chat() {
           <Welcome />
         )}
       </div>
+      <div>
+      <Popup className='Popup' url={url}/>
+    </div>
     </Container>
   );
 }

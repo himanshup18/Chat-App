@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/QC.jpeg.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { registerRoute } from "../utils/APIRoutes";
@@ -81,9 +81,10 @@ export default function Register() {
     <>
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <div className="brand">
-            <Image src={Logo} alt="logo" width={50} height={50} />
-            <h1>snappy</h1>
+          <div className="flex justify-center">
+          <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px",marginRight:"10px",
+           }} />
+              <h3 className="font-semibold text-xl align-middle"><span className="text-blue-600 ">Quick</span>Con</h3>
           </div>
           <input
             type="text"

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/QC.jpeg.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from "../utils/APIRoutes";
@@ -64,9 +64,10 @@ export default function Login() {
     <>
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <div className="brand">
-            <Image src={Logo} alt="logo" width={50} height={50} />
-            <h1>snappy</h1>
+          <div className="flex justify-center align-middle">
+          <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px",marginRight:"10px",
+           }} />
+              <h3 className="font-semibold text-xl align-middle"><span className="text-blue-600 ">Quick</span>Con</h3>
           </div>
           <input
             type="text"
@@ -101,21 +102,6 @@ const FormContainer = styled.div`
   align-items: center;
   background-color: #e1f5fe; /* Light sky blue background */
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-
-    img {
-      height: 5rem;
-    }
-
-    h1 {
-      color: #2c3e50; /* Dark blue for text */
-      text-transform: uppercase;
-    }
-  }
 
   form {
     display: flex;
