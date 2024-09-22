@@ -11,16 +11,20 @@ This Chat App is a real-time messaging platform that enables seamless communicat
 ### Features
 
 - User Registration & Authentication: Secure sign-up and login functionalities.
-- ![User Login](client/src/app/assets/User login.jpg)
+![User Login](client/src/app/assets/UserLogin.jpg)
 
+- Responsive UI: A responsive and user-friendly design built using Next.js, ensuring the app works well on both desktop and mobile devices.
+![HomePage](client/src/app/assets/HomePage.jpg)
 
 - Real-Time Messaging: Instant messaging with real-time updates using WebSockets, enabling smooth and responsive communication between users.
+![ChatUI](client/src/app/assets/ChatUI.jpg) 
 
 - Group Chats: Create and participate in group conversations. The app supports group management features like adding/removing members and setting group names.
+![Group](client/src/app/assets/Group.jpg)
 
 - AI-Powered Chatbot: Integrated AI chatbot to assist users in conversations or answer frequently asked questions.
 
-- Responsive UI: A responsive and user-friendly design built using Next.js, ensuring the app works well on both desktop and mobile devices.
+
 
 # Technology Stack
 - Frontend :  Tailwind CSS , NextJs 
