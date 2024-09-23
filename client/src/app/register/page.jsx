@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../assets/QC.jpeg.jpg";
+import Logo from "../assets/QC2.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { registerRoute } from "../utils/APIRoutes";
@@ -31,7 +31,7 @@ export default function Register() {
     if (localStorage.getItem(process.env.NEXT_PUBLIC_LOCALHOST_KEY)) {
       router.push("/chat");
     }
-  }, []);
+  }, [router]);
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -81,10 +81,12 @@ export default function Register() {
     <>
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-center">
-          <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px",marginRight:"10px",
-           }} />
-              <h3 className="font-semibold text-xl align-middle"><span className="text-blue-600 ">Quick</span>Con</h3>
+          <div className="flex justify-center items-center">
+            <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px", marginRight: "10px" }} />
+            <h3 className="font-semibold text-xl">
+              <span className="text-blue-600">Quick</span>
+              <span style={{ color: "#2c3e50" }}>Con</span>
+            </h3>
           </div>
           <input
             type="text"
@@ -99,7 +101,7 @@ export default function Register() {
             onChange={handleChange}
           />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             name="password"
             onChange={handleChange}
@@ -122,58 +124,41 @@ export default function Register() {
 }
 
 const FormContainer = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  align-items: center;
-  background-color: #e1f5fe; 
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-
-    img {
-      height: 5rem;
-    }
-
-    h1 {
-      color: #2c3e50;
-      text-transform: uppercase;
-    }
-  }
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  background-color: #e1f5fe; /* Light sky blue background */
 
   form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    background-color: #ffffff; 
+    background-color: #ffffff; /* White background for the form */
     border-radius: 2rem;
-    padding: 3rem 5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    padding: 3rem 5rem; /* Adjusted padding for better spacing */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
   }
 
   input {
     background-color: transparent;
     padding: 1rem;
-    border: 0.1rem solid #4e0eff; 
+    border: 0.1rem solid #4e0eff; /* Sky blue border */
     border-radius: 0.4rem;
-    color: #2c3e50;
+    color: #2c3e50; /* Dark text color */
     width: 100%;
     font-size: 1rem;
 
     &:focus {
-      border: 0.1rem solid #007bbf;
+      border: 0.1rem solid #007bbf; /* Focused border color */
       outline: none;
     }
   }
 
   button {
-    background-color: #007bbf; 
+    background-color: #007bbf; /* Sky blue button */
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -184,16 +169,16 @@ const FormContainer = styled.div`
     text-transform: uppercase;
 
     &:hover {
-      background-color: #005f8c;
+      background-color: #005f8c; /* Darker blue on hover */
     }
   }
 
   span {
-    color: #2c3e50; 
+    color: #2c3e50; /* Dark text color */
     text-transform: uppercase;
 
     a {
-      color: #007bbf;
+      color: #007bbf; /* Link color */
       text-decoration: none;
       font-weight: bold;
     }

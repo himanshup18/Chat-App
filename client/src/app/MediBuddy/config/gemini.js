@@ -1,7 +1,5 @@
 // node --version # Should be >= 18
 // npm install @google/generative-ai
-require("dotenv").config();
-
 import {
   GoogleGenerativeAI,
   HarmCategory,

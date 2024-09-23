@@ -120,7 +120,7 @@ const Main = () => {
               type="text" 
               placeholder='Type a message...' 
               onKeyDown={handleKeyDown} 
-            />
+             className='text-gray-500' />
             <div>
               {input ? <Image onClick={() => onSent()} src={assets.send_icon} alt="Send Icon" /> : null}
             </div>

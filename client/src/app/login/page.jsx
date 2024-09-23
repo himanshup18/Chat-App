@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../assets/QC2.jpg"
+import Logo from "../assets/QC2.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from "../utils/APIRoutes";
@@ -13,6 +13,7 @@ import { loginRoute } from "../utils/APIRoutes";
 export default function Login() {
   const router = useRouter();
   const [values, setValues] = useState({ username: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const toastOptions = {
     position: "bottom-right",
     autoClose: 8000,
@@ -43,19 +44,23 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      const { username, password } = values;
-      const { data } = await axios.post(loginRoute, {
-        username,
-        password,
-      });
-      if (data.status === false) {
-        toast.error(data.msg, toastOptions);
-      } else if (data.status === true) {
-        localStorage.setItem(
-          process.env.NEXT_PUBLIC_LOCALHOST_KEY,
-          JSON.stringify(data.user)
-        );
-        router.push("/chat");
+      setLoading(true);
+      try {
+        const { username, password } = values;
+        const { data } = await axios.post(loginRoute, { username, password });
+        if (data.status === false) {
+          toast.error(data.msg, toastOptions);
+        } else {
+          localStorage.setItem(
+            process.env.NEXT_PUBLIC_LOCALHOST_KEY,
+            JSON.stringify(data.user)
+          );
+          router.push("/chat");
+        }
+      } catch (error) {
+        toast.error("An error occurred while logging in. Please try again.", toastOptions);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -64,11 +69,14 @@ export default function Login() {
     <>
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <div className="flex justify-center align-middle">
-          <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px",marginRight:"10px",
-           }} />
-              <h3 className="font-semibold text-xl align-middle"><span className="text-blue-600 ">Quick</span>Con</h3>
+          <div className="flex justify-center items-center">
+            <Image src={Logo} alt="logo" width={40} height={50} style={{ borderRadius: "20px", marginRight: "10px" }} />
+            <h3 className="font-semibold text-xl">
+              <span className="text-blue-600">Quick</span>
+              <span style={{ color: "#2c3e50" }}>Con</span>
+            </h3>
           </div>
+
           <input
             type="text"
             placeholder="Username"
@@ -102,14 +110,13 @@ const FormContainer = styled.div`
   align-items: center;
   background-color: #e1f5fe; /* Light sky blue background */
 
-
   form {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     background-color: #ffffff; /* White background for the form */
     border-radius: 2rem;
-    padding: 5rem;
+    padding: 5rem; /* Adjusted padding for better spacing */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
   }
 
